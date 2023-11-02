@@ -7,3 +7,7 @@
 * [Designing an Efficient ML Inference System](tech-blogs/designing-an-efficient-ml-inference-system.md)
 * [Designing a Vector Database with Rust](tech-blogs/designing-a-vector-database-with-rust.md)
 * [Building an ML Data Pipeline](tech-blogs/building-an-ml-data-pipeline.md)
+
+***
+
+* [Building a Custom Shell from Scratch](building-a-custom-shell-from-scratch.md)
