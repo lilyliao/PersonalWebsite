@@ -1,4 +1,4 @@
-# Building a Custom Shell from Scratch
+# Building a Custom Shell from Scratch Using C
 
 In the world of computing, the shell is an indispensable tool for developers, system administrators, and power users alike. It's the interface that allows us to converse with the operating system, to tell it what to do, and to automate complex tasks. But what if the shells you've used don't do exactly what you want? What if you need a feature that doesn't exist, or you want to understand at a deeper level how your computer executes your commands? The answer is to write your own shell.
 
@@ -31,10 +31,6 @@ Here are the basic steps you'll follow to create your own shell:
 
 The initialization of your shell involves setting up a read-eval-print loop (REPL). Here's a more fleshed-out version in C:
 
-```
-c
-```
-
 ```c
 #include <stdio.h>
 #include <stdbool.h>
@@ -59,10 +55,6 @@ int main() {
 
 Parsing the input involves tokenizing the string you've received. Here's a simple tokenizer using `strtok` in C:
 
-```
-c
-```
-
 ```c
 #include <string.h>
 
@@ -82,10 +74,6 @@ void parse_input(char* input, char** argv) {
 #### Step 3: Execute Commands
 
 To execute commands, you'll need to fork the process and use `execvp` to run the command:
-
-```
-c
-```
 
 ```c
 #include <unistd.h>
@@ -116,10 +104,6 @@ void execute_command(char** argv) {
 
 Managing processes involves handling foreground and background execution. Here's a snippet for foreground process management:
 
-```
-c
-```
-
 ```c
 void execute_command(char** argv, bool run_in_background) {
     pid_t pid = fork();
@@ -149,10 +133,6 @@ void execute_command(char** argv, bool run_in_background) {
 
 For built-in commands, you'll need to check the command name and perform the action directly. Here's an example for `cd`:
 
-```
-c
-```
-
 ```c
 #include <unistd.h>
 
@@ -175,10 +155,6 @@ if (strcmp(argv[0], "cd") == 0) {
 
 Handling signals involves setting up signal handlers. Here's a simple example for `SIGINT`:
 
-```
-c
-```
-
 ```c
 #include <signal.h>
 
@@ -195,9 +171,6 @@ int main() {
 #### Step 7: Expand Features
 
 As an example of expanding features, let's add a simple history feature using a linked list:
-
-```
-```
 
 ```c
 #include <stdlib.h>
@@ -217,3 +190,12 @@ CommandHistory* add_history(CommandHistory* history, char* command) {
 // Usage within your main loop
 history = add_history(history, input);
 ```
+
+### Further Learning Materials
+
+To get started, you'll want to dive into some reference materials. Here are a few to begin with:
+
+* **Advanced Programming in the UNIX Environment** by W. Richard Stevens and Stephen A. Rago ([Link](https://www.amazon.com/Advanced-Programming-UNIX-Environment-3rd/dp/0321637739)): This book is a comprehensive guide to Unix system programming, with an emphasis on communications, file systems, and new standards.
+* **The Linux Programming Interface** by Michael Kerrisk ([Link](https://www.man7.org/tlpi/)): A detailed guide to the Linux and UNIX system programming interface.
+* **GNU Bash Reference Manual** ([Link](https://www.gnu.org/software/bash/manual/)): To understand how existing shells work, the Bash reference is invaluable.
+* **Writing Your Own Shell** tutorial by Stephen Brennan ([Link](https://brennan.io/2015/01/16/write-a-shell-in-c/)): A step-by-step guide to writing a shell in C.
